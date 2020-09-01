@@ -4,7 +4,7 @@
  * Build and deploy the OpenShift objects template using OpenShift CLI.
  *
  * Example:
- * buildDeployOSTemplate(project: 'myproject', templateFullPath: 'template/sample-template.yaml', appName: 'myapp',
+ * deployOSTemplate(project: 'myproject', templateFullPath: 'template/sample-template.yaml', appName: 'myapp',
  * gitUrl: 'https://', gitBranch: 'master', memLimit: '512Mi', replicas: '2', imageTag: 'latest')
  *
  * @param project
