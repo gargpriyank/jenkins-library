@@ -4,7 +4,7 @@
  * Send an email for a build failure to provided recipients list.
  *
  * Examples:
- * emailBuildFailure(appName: 'myapp', deployEnv: 'development', buildNumber: '1')
+ * emailBuildFailure(appName: 'myapp', deployEnv: 'development', buildNumber: '1', recipients: 'xyz@abc.com')
  *
  * @param appName
  * @param deployEnv
