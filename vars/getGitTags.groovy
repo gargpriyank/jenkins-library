@@ -5,7 +5,7 @@
  * Assumption: Github account credentials "github_creds" is already set in Jenkins credentials.
  *
  * Example:
- * getGitTags(appName: 'myapp', gitOrg: 'myorg')
+ * getGitTags.groovy(appName: 'myapp', gitOrg: 'myorg')
  *
  * @param gitOrg
  * @param appName
