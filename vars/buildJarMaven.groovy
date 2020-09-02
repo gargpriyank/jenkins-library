@@ -4,15 +4,20 @@
  * Build the JAR artifact using maven.
  *
  * Example:
- * buildJarMaven(mvnArgs: '-DskipTests')
+ * buildJarMaven(mvnArgs: '-DskipTests', checkMavenSettings: true)
  *
  * @param mvnArgs
  */
 def call(args) {
 
     def mvnArgs = args.mvnArgs
+    def checkMavenSettings = args.checkMavenSettings ?: false
 
-    configFileProvider([configFile(fileId: 'maven_settings', variable: 'maven_settings')]) {
-        sh "mvn -s $maven_settings clean install $mvnArgs"
+    if (checkMavenSettings) {
+        configFileProvider([configFile(fileId: 'maven_settings', variable: 'maven_settings')]) {
+            sh "mvn -s $maven_settings clean install $mvnArgs"
+        }
+    } else {
+        sh "mvn clean install $mvnArgs"
     }
 }
