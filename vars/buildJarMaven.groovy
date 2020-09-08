@@ -10,7 +10,7 @@
  */
 def call(args) {
 
-    def mvnArgs = args.mvnArgs
+    def mvnArgs = args.mvnArgs ?: ""
     def checkMavenSettings = args.checkMavenSettings ?: false
 
     if (checkMavenSettings) {
