@@ -7,6 +7,7 @@
  * buildJarMaven(mvnArgs: '-DskipTests', checkMavenSettings: true)
  *
  * @param mvnArgs
+ * @param checkMavenSettings
  */
 def call(args) {
 
