@@ -4,7 +4,7 @@
  * Build and deploy the OpenShift objects template using OpenShift CLI.
  *
  * Example:
- * deployOSTemplate(project: 'myproject', templateFullPath: 'template/sample-template.yaml', appName: 'myapp',
+ * processOSTemplate(project: 'myproject', templateFullPath: 'template/sample-template.yaml', appName: 'myapp',
  * dockerRegistry: 'docker.io', dockerRepo: 'myrepo', memLimit: '512Mi', replicas: '2', imageTag: 'latest')
  *
  * @param project
@@ -15,6 +15,8 @@
  * @param memLimit
  * @param replicas
  * @param imageTag
+ * @param githubURL
+ * @param githubBranch
  */
 def call(args) {
 
