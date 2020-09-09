@@ -28,7 +28,7 @@ def call(args) {
         sh "docker login $dockerRegistry -u $userName -p $password"
     }
     if (buildAh) {
-        sh "buildah -t $dockerRegistry/$dockerRepo/$appName:$imageTag -f $dockerFilePath ."
+        sh "buildah bud -t $dockerRegistry/$dockerRepo/$appName:$imageTag -f $dockerFilePath ."
     } else {
         sh "docker build -t $dockerRegistry/$dockerRepo/$appName:$imageTag -f $dockerFilePath ."
     }
