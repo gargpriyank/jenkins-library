@@ -58,5 +58,5 @@ def call(args) {
     }
 
     sh "oc project $project"
-    sh "oc process -f $templateFullPath $stmt | oc apply -f -"
+    sh "$stmt | oc apply -f -"
 }
