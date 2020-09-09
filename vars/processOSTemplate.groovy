@@ -25,8 +25,8 @@ def call(args) {
     def appName = args.appName
     def dockerRegistry = args.dockerRegistry
     def dockerRepo = args.dockerRepo
-    def memLimit = args.memLimit ?: '512Mi'
-    def replicas = args.replicas ?: '2'
+    def memLimit = args.memLimit
+    def replicas = args.replicas
     def imageTag = args.imageTag
     def githubURL = args.githubURL
     def githubBranch = args.githubBranch
