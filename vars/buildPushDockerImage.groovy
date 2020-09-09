@@ -5,7 +5,7 @@
  *
  * Examples:
  * buildPushDockerImage(appName: 'myapp', imageTag: 'latest', dockerRegistry: 'docker.io', dockerRepo: 'sample-repo',
- * dockerFilePath:'deploy/Dockerfile', buildAh: true)
+ * dockerFilePath: 'deploy/Dockerfile', buildAh: true)
  *
  * @param appName
  * @param imageTag
