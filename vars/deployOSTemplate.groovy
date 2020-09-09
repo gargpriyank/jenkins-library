@@ -26,10 +26,35 @@ def call(args) {
     def memLimit = args.memLimit ?: '512Mi'
     def replicas = args.replicas ?: '2'
     def imageTag = args.imageTag
+    def githubURL = args.githubURL
+    def githubBranch = args.githubBranch
+    def stmt = "oc process -f $templateFullPath"
+
+    if (appName != null) {
+        stmt += " -pNAME=$appName"
+    }
+    if (memLimit != null) {
+        stmt += " -pMEMORY_LIMIT=$memLimit"
+    }
+    if (replicas != null) {
+        stmt += " -pREPLICAS=$replicas"
+    }
+    if (dockerRegistry != null) {
+        stmt += " -pIMAGE_REGISTRY=$dockerRegistry"
+    }
+    if (dockerRepo != null) {
+        stmt += " -pIMAGE_REPO=$dockerRepo"
+    }
+    if (imageTag != null) {
+        stmt += " -pIMAGE_TAG=$imageTag"
+    }
+    if (githubURL != null) {
+        stmt += " -pGITHUB_URL=$githubURL"
+    }
+    if (githubBranch != null) {
+        stmt += " -pGITHUB_BRANCH=$githubBranch"
+    }
 
     sh "oc project $project"
-    sh "oc process -f $templateFullPath" +
-            " -pNAME=$appName -pMEMORY_LIMIT=$memLimit -pREPLICAS=$replicas -pIMAGE_REGISTRY=$dockerRegistry -pIMAGE_REPO=$dockerRepo" +
-            " -pIMAGE_TAG=$imageTag" +
-            " | oc apply -f -"
+    sh "oc process -f $templateFullPath $stmt | oc apply -f -"
 }
